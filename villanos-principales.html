@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Los villanos principales de Miraculous: el Monarca y Chrysalis.">
+  <meta name="keywords" content="Miraculous villanos, Hawk Moth, Monarca, Chrysalis, Gabriel Agreste">
+  <title>Miraculous.Portal | Villanos Principales</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #08001a 0%, #1a0033 50%, #08001a 100%);
+    }
+
+    .vp-hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      padding-left: 60px;
+      padding-right: 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(102, 0, 179, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Partículas decorativas */
+    .particula {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: flotar linear infinite;
+      opacity: 0.15;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.15;
+      }
+
+      90% {
+        opacity: 0.15;
+      }
+
+      100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .vp-subtitulo {
+      font-family: var(--font-elegante);
+      font-size: 0.85rem;
+      letter-spacing: 6px;
+      color: var(--morado-vivo);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .vp-titulo {
+      font-family: var(--font-titulo);
+      font-size: clamp(3rem, 8vw, 6rem);
+      letter-spacing: 4px;
+      color: var(--blanco);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .vp-titulo span {
+      color: var(--morado-vivo);
+    }
+
+    .vp-desc {
+      max-width: 650px;
+      margin: 0 auto 60px;
+      color: var(--gris-suave);
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    /* Cards villanos principales */
+    .vp-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .vp-card {
+      background: rgba(20, 0, 40, 0.8);
+      border-radius: var(--radio-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    /* Borde LED animado */
+    .vp-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radio-lg) + 2px);
+      background: linear-gradient(135deg, var(--morado-vivo), var(--rojo), var(--morado-vivo), #000);
+      background-size: 300% 300%;
+      animation: ledFlow 4s ease infinite;
+      z-index: 0;
+    }
+
+    .vp-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .vp-card__inner {
+      background: rgba(12, 0, 28, 0.95);
+      border-radius: var(--radio-lg);
+      overflow: hidden;
+    }
+
+    @keyframes ledFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .vp-card:hover {
+      transform: translateY(-6px) scale(1.01);
+    }
+
+    .vp-card__img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      filter: brightness(0.65) saturate(0.9);
+      transition: filter 0.3s ease;
+      display: block;
+    }
+
+    .vp-card:hover .vp-card__img {
+      filter: brightness(0.85) saturate(1.1);
+    }
+
+    .vp-card__info {
+      padding: 28px;
+      background: linear-gradient(to top, rgba(12, 0, 28, 1) 0%, rgba(12, 0, 28, 0.8) 100%);
+    }
+
+    .vp-card__temporadas-badge {
+      font-size: 0.7rem;
+      color: var(--morado-vivo);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .vp-card__nombre {
+      font-family: var(--font-titulo);
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      color: var(--blanco);
+      line-height: 1;
+    }
+
+    .vp-card__civil {
+      font-size: 0.82rem;
+      color: var(--morado-vivo);
+      font-weight: 600;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .vp-card__desc {
+      font-size: 0.82rem;
+      color: var(--gris-suave);
+      margin-top: 12px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .vp-card__btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 8px 20px;
+      background: transparent;
+      border: 1px solid var(--morado-vivo);
+      border-radius: var(--radio);
+      color: var(--morado-vivo);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font-cuerpo);
+    }
+
+    .vp-card__btn:hover {
+      background: var(--morado-vivo);
+      color: var(--blanco);
+    }
+
+    /* Info expandida */
+    .vp-info-expandida {
+      display: none;
+      max-width: 900px;
+      margin: 60px auto 0;
+      background: rgba(12, 0, 28, 0.9);
+      border: 1px solid rgba(102, 0, 179, 0.4);
+      border-radius: var(--radio-lg);
+      padding: 40px;
+    }
+
+    .vp-info-expandida.visible {
+      display: block;
+    }
+
+    .vp-info-expandida h2 {
+      font-family: var(--font-titulo);
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: var(--blanco);
+      border-left: 4px solid var(--morado-vivo);
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+
+    .vp-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 40px;
+      margin-bottom: 28px;
+    }
+
+    .vp-info-item label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gris-medio);
+      margin-bottom: 4px;
+    }
+
+    .vp-info-item span {
+      font-size: 0.9rem;
+      color: var(--blanco);
+      font-weight: 600;
+    }
+
+    .vp-info-expandida p {
+      color: var(--gris-suave);
+      font-size: 0.9rem;
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .vp-cards {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+
+      .vp-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vp-hero {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Partículas decorativas -->
+  <div class="particula"
+    style="left:10%;width:6px;height:6px;background:#6600b3;animation-duration:8s;animation-delay:0s"></div>
+  <div class="particula"
+    style="left:25%;width:4px;height:4px;background:#e8000d;animation-duration:11s;animation-delay:2s"></div>
+  <div class="particula"
+    style="left:50%;width:8px;height:8px;background:#6600b3;animation-duration:9s;animation-delay:1s"></div>
+  <div class="particula"
+    style="left:70%;width:5px;height:5px;background:#e8000d;animation-duration:13s;animation-delay:3s"></div>
+  <div class="particula"
+    style="left:85%;width:4px;height:4px;background:#6600b3;animation-duration:10s;animation-delay:0.5s"></div>
+
+  <nav class="navbar" style="background:rgba(8,0,26,0.95);border-bottom-color:rgba(102,0,179,0.3)">
+    <a href="index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="personajes.html">Personajes</a></li>
+      <li><a href="temporadas.html">Temporadas</a></li>
+      <li><a href="tienda.html">Tienda</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- Hero -->
+  <div class="vp-hero">
+    <p class="vp-subtitulo">Los antagonistas definitivos</p>
+    <h1 class="vp-titulo">Villanos<br><span>Principales</span></h1>
+    <p class="vp-desc">
+      A lo largo de la serie, cientos de civiles fueron akumatizados. Pero solo dos portadores del
+      Miraculous del mal han marcado la historia de París para siempre. Cinco temporadas de oscuridad.
+      Una nueva era comienza.
+    </p>
+
+    <div class="vp-cards">
+
+      <!-- Monarca -->
+      <div class="vp-card" onclick="mostrarInfo('monarca')">
+        <div class="vp-card__inner">
+          <img src="img/villanos/monarca.jpg" alt="Monarca" class="vp-card__img"
+            onerror="this.style.minHeight='320px';this.style.background='linear-gradient(to bottom,#1a0033,#08001a)'">
+          <div class="vp-card__info">
+            <div class="vp-card__temporadas-badge">Temporadas 1 – 5</div>
+            <div class="vp-card__nombre">El Monarca</div>
+            <div class="vp-card__civil">Civil: Gabriel Agreste</div>
+            <p class="vp-card__desc">
+              El villano principal de las primeras cinco temporadas. Comenzó como Hawk Moth y evolucionó
+              hasta convertirse en el ser más poderoso de la serie.
+            </p>
+            <button class="vp-card__btn">Ver wiki completa</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chrysalis -->
+      <div class="vp-card" onclick="mostrarInfo('chrysalis')">
+        <div class="vp-card__inner">
+          <img src="img\villanos\Chrysalis.png" alt="Chrysalis" class="vp-card__img"
+            onerror="this.style.minHeight='320px';this.style.background='linear-gradient(to bottom,#1a0033,#08001a)'">
+          <div class="vp-card__info">
+            <div class="vp-card__temporadas-badge">Temporada 6 — En curso</div>
+            <div class="vp-card__nombre">Chrysalis</div>
+            <div class="vp-card__civil">Civil: Por revelar</div>
+            <p class="vp-card__desc">
+              La nueva amenaza que surge en la temporada 6. Una villana de naturaleza desconocida
+              con poderes que desafían todo lo visto antes.
+            </p>
+            <button class="vp-card__btn">Ver wiki completa</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Info expandida Monarca -->
+    <div class="vp-info-expandida" id="info-monarca">
+      <h2>El Monarca — Gabriel Agreste</h2>
+      <div class="vp-info-grid">
+        <div class="vp-info-item"><label>Nombre civil</label><span>Gabriel Agreste</span></div>
+        <div class="vp-info-item"><label>Temporadas activo</label><span>1 al 5</span></div>
+        <div class="vp-info-item"><label>Miraculous usado</label><span>Mariposa + Pavo Real (T5)</span></div>
+        <div class="vp-info-item"><label>Kwamis</label><span>Nooroo y Duusu</span></div>
+        <div class="vp-info-item"><label>Objetivo principal</label><span>Resucitar a Emilie Agreste</span></div>
+        <div class="vp-info-item"><label>Destino final</label><span>Derrotado en T5 — Final Finale</span></div>
+      </div>
+      <p>Gabriel Agreste, mundialmente conocido como diseñador de moda, ocultaba bajo su elegante fachada
+        al villano que aterrorizó París durante cinco temporadas. Movido por un amor desesperado hacia su
+        esposa Emilie, quien cayó en un coma mágico por el uso del Miraculous dañado del pavo real, Gabriel
+        robó el Miraculous de la mariposa para crear akumas y perseguir los Miraculous de Ladybug y Cat Noir.</p>
+      <p>En la temporada 5, combinando ambos Miraculous, se transformó en el Monarca, adquiriendo capacidad
+        de usar los poderes de todos los Miraculous conocidos simultáneamente, convirtiéndose en el ser más
+        poderoso de la serie. Su derrota en el episodio Final Finale cerró uno de los arcos más largos en la
+        historia de la animación moderna de superhéroes.</p>
+      <p>Lo que más destaca de Gabriel es la complejidad de su villanía: no actúa por maldad sino por amor,
+        lo que lo convierte en un antagonista trágico y profundamente humano pese a todo el daño que causó.</p>
+      <p style="color:var(--morado-vivo);font-weight:600">
+        🎭 Mi favorito de los villanos principales — Aunque Mayura (Nathalie) tiene un arco increíble,
+        el Monarca tiene la historia más completa y desgarradora de toda la serie.
+      </p>
+    </div>
+
+    <!-- Info expandida Chrysalis -->
+    <div class="vp-info-expandida" id="info-chrysalis">
+      <h2>Chrysalis — Temporada 6</h2>
+      <div class="vp-info-grid">
+        <div class="vp-info-item"><label>Nombre civil</label><span>Por revelar (T6)</span></div>
+        <div class="vp-info-item"><label>Temporada activa</label><span>6 — En curso</span></div>
+        <div class="vp-info-item"><label>Miraculous usado</label><span>Por confirmar</span></div>
+        <div class="vp-info-item"><label>Estado actual</label><span>Activa — Amenaza vigente</span></div>
+      </div>
+      <p>Chrysalis es la nueva villana principal que emerge tras la caída del Monarca al inicio de la
+        temporada 6. Con la nueva animación CGI renovada, este personaje representa una nueva era de
+        oscuridad para los héroes de París. Para mantener sus engaños y operar en diferentes sectores de París sin ser
+        descubierta, creó múltiples vidas civiles con madres falsas (mujeres solas a las que manipulaba afectivamente).
+        Sus nombres confirmados son:
+•	Lila Rossi: La estudiante italiana que todos conocían en la escuela.
+•	Cerise: La identidad con cabello castaño oscuro y gorro que usaba para interactuar en otros círculos.
+•	Iris Verdi: La identidad que utilizó para matricularse en su nueva escuela al inicio de la Temporada 6.
+•	Bianca: Otro de los alias comerciales y civiles que utilizaba para moverse en la clandestinidad.
+</p>
+      <p>Su nombre hace referencia al estado de crisálida, una fase de transformación, lo que sugiere
+        que su origen podría estar ligado a los eventos de las temporadas anteriores. Los fans especulan
+        ampliamente sobre su identidad civil.</p>
+      <p style="color:var(--gris-medio);font-style:italic">
+        ⚠️ Información limitada — La temporada 6 está en curso. Esta sección se actualizará
+        conforme se emitan nuevos episodios.
+      </p>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;padding:40px 20px 80px">
+    <a href="personajes.html" class="hero__btn"
+      style="background:transparent;border:2px solid var(--morado-vivo);color:var(--morado-vivo)">
+      ← Volver a personajes
+    </a>
+  </div>
+
+  <footer style="background:rgba(5,0,15,0.95);border-top-color:rgba(102,0,179,0.2)">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">Portal informativo de fans dedicado a Miraculous Ladybug.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="temporadas.html">Temporadas</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — Sitio de fans. No afiliado a <span>ZAG Animation</span>.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    let infoAbierta = null;
+    function mostrarInfo(id) {
+      const el = document.getElementById('info-' + id);
+      if (infoAbierta && infoAbierta !== el) {
+        infoAbierta.classList.remove('visible');
+      }
+      el.classList.toggle('visible');
+      infoAbierta = el.classList.contains('visible') ? el : null;
+      if (el.classList.contains('visible')) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
+</body>
+
+</html>

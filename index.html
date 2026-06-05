@@ -1,0 +1,218 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Miraculous.Portal — Portal informativo sobre Miraculous Ladybug: personajes, temporadas, kwamis y más.">
+  <meta name="keywords" content="Miraculous, Ladybug, Chat Noir, kwamis, héroes, villanos, temporadas, Thomas Astruc">
+  <meta name="author" content="Miraculous.Portal">
+  <title>Miraculous.Portal | Inicio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .tvmaze-card {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: var(--negro-card);
+      border: 1px solid rgba(74,0,128,0.3);
+      border-radius: var(--radio-lg);
+      padding: 24px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .tvmaze-poster {
+      width: 120px;
+      border-radius: var(--radio);
+      flex-shrink: 0;
+      border: 1px solid rgba(232,0,13,0.2);
+    }
+    .tvmaze-datos { flex: 1; min-width: 200px; }
+    .tvmaze-datos p { margin-bottom: 8px; font-size: 0.88rem; color: var(--gris-suave); }
+    .tvmaze-datos p strong { color: var(--blanco); margin-right: 6px; }
+    .tvmaze-resumen {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.82rem;
+      color: var(--gris-medio);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="personajes.html">Personajes</a></li>
+      <li><a href="temporadas.html">Temporadas</a></li>
+      <li><a href="tienda.html">Tienda</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__bg"></div>
+
+    <div class="hero__arc hero__arc--left">
+      <svg viewBox="0 0 260 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="-60" cy="350" rx="200" ry="340"
+                 fill="none" stroke="#e8000d" stroke-width="70" opacity="0.85"/>
+      </svg>
+    </div>
+    <div class="hero__arc hero__arc--right">
+      <svg viewBox="0 0 260 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="-60" cy="350" rx="200" ry="340"
+                 fill="none" stroke="#e8000d" stroke-width="70" opacity="0.85"/>
+      </svg>
+    </div>
+
+    <div class="hero__char hero__char--left">
+      <img src="img\heroes\Ldybuginicio.jpeg" alt="Ladybug">
+    </div>
+    <div class="hero__char hero__char--right">
+      <img src="img\heroes\Chatnoirinicio.jpeg" alt="Chat Noir">
+    </div>
+
+    <div class="hero__gradient"></div>
+
+
+    <div class="hero__content">
+      <p class="hero__pretitulo">Portal fan · Informativo</p>
+      <h1 class="hero__titulo">MIRACULOUS<span>.</span></h1>
+      <p class="hero__subtitulo">Tu enciclopedia definitiva de héroes, villanos y kwamis de París</p>
+      <a href="personajes.html" class="hero__btn">Explorar personajes</a>
+    </div>
+
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="contenedor">
+      <p class="seccion__etiqueta">El universo</p>
+      <h2 class="seccion__titulo">¿Qué es Miraculous?</h2>
+      <div class="seccion__linea"></div>
+
+      <div class="about__grid">
+        <div class="about__texto">
+          <p>
+            <strong style="color:var(--blanco)">Miraculous: Las aventuras de Ladybug y Cat Noir</strong> es una serie
+            animada de televisión producida por ZAG Animation y ON kids &amp; family. Ambientada en la ciudad de París,
+            sigue a Marinette Dupain-Cheng y Adrien Agreste, dos estudiantes de colegio que llevan una doble vida
+            como superhéroes.
+          </p>
+          <p>
+            La serie combina acción, romance, comedia y drama con una profunda mitología basada en los Miraculous,
+            joyas mágicas que otorgan superpoderes a sus portadores a través de pequeñas criaturas llamadas kwamis.
+          </p>
+          <p>
+            Desde su lanzamiento en 2015, la serie ha crecido hasta seis temporadas con cambios de animación,
+            nuevos héroes, villanos más complejos y revelaciones que impactaron a la comunidad fan mundial.
+          </p>
+
+          <div id="tvmaze-info" style="margin-top:28px">
+            <p class="texto-gris" style="font-size:0.82rem">Cargando información oficial…</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="seccion__etiqueta">Proceso de creación</p>
+          <h3 style="font-family:var(--font-titulo);font-size:1.8rem;margin-bottom:16px;letter-spacing:2px">
+            Las mentes detrás
+          </h3>
+          <p style="color:var(--gris-suave);font-size:0.88rem;margin-bottom:24px;font-weight:300">
+            La serie nació de una colaboración internacional entre Francia, Corea del Sur y Japón, con una
+            visión compartida de crear algo único en la animación mundial.
+          </p>
+
+          <div class="about__creadores">
+            <div class="creador-card">
+              <div class="creador-card__icono">🎬</div>
+              <div class="creador-card__info">
+                <strong>Thomas Astruc</strong>
+                <span>Creador y director principal de la serie. La idea original nació de su mente en 2012.</span>
+              </div>
+            </div>
+            <div class="creador-card">
+              <div class="creador-card__icono">🏢</div>
+              <div class="creador-card__info">
+                <strong>Jeremy Zag</strong>
+                <span>CEO de ZAG Animation. Productor ejecutivo y responsable de llevar la serie al mundo.</span>
+              </div>
+            </div>
+            <div class="creador-card">
+              <div class="creador-card__icono">✍️</div>
+              <div class="creador-card__info">
+                <strong>Melanie Duval</strong>
+                <span>Guionista principal. Responsable del desarrollo de personajes y arcos narrativos.</span>
+              </div>
+            </div>
+            <div class="creador-card">
+              <div class="creador-card__icono">🎵</div>
+              <div class="creador-card__info">
+                <strong>Noam Kaniel</strong>
+                <span>Compositor de la banda sonora original y la icónica canción principal de la serie.</span>
+              </div>
+            </div>
+            <div class="creador-card">
+              <div class="creador-card__icono">🖌️</div>
+              <div class="creador-card__info">
+                <strong>Toei Animation / ON kids</strong>
+                <span>Estudios co-productores que dieron forma visual y animación a toda la serie.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:56px">
+        <a href="personajes.html" class="hero__btn">Ver héroes →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">
+          Portal informativo de fans dedicado a Miraculous: Las aventuras de Ladybug y Cat Noir.
+          Todo el contenido de la serie pertenece a ZAG Animation y ON kids &amp; family.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="temporadas.html">Temporadas</a></li>
+          <li><a href="villanos-principales.html">Villanos principales</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="index.html#about">Sobre el portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — Sitio de fans. No afiliado a <span>ZAG Animation</span>.</p>
+      <p>Desarrollado con HTML · CSS · JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

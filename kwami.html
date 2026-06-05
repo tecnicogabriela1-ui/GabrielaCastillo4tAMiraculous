@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wiki completa del kwami de Miraculous.">
+  <title>Miraculous.Portal | wiki.kwamis</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../personajes.html" class="active">Personajes</a></li>
+      <li><a href="../temporadas.html">Temporadas</a></li>
+      <li><a href="../tienda.html">Tienda</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="wiki-header">
+    <div class="wiki-header__breadcrumb">
+      <a href="../personajes.html">Personajes</a> / <span style="color:var(--rojo)">wiki.kwamis</span> / <span id="bc-nombre">—</span>
+    </div>
+    <div class="wiki-header__grid">
+      <div>
+        <img id="wiki-img" src="" alt="" class="wiki-header__img"
+             onerror="this.src='../img/placeholder.jpg'">
+      </div>
+      <div>
+        <p class="seccion__etiqueta">wiki.kwamis</p>
+        <h1 class="wiki-header__nombre" id="wiki-nombre">—</h1>
+        <p class="wiki-header__subtitulo" id="wiki-poder">—</p>
+        <div class="wiki-badges" id="wiki-badges"></div>
+        <div class="wiki-ficha" id="wiki-ficha"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wiki-body">
+
+    <div class="wiki-seccion">
+      <h2>¿Qué son los kwamis?</h2>
+      <p>Los kwamis son criaturas mágicas que existen desde antes de la humanidad. Representan conceptos
+         abstractos y otorgan superpoderes a sus portadores a través de las joyas Miraculous. Cada kwami
+         está ligado a un Miraculous específico y no puede actuar sin la voluntad de su portador.</p>
+      <p id="wiki-historia">—</p>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Portadores</h2>
+      <div id="wiki-portadores"></div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Características</h2>
+      <div id="wiki-caracteristicas"></div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Reglas y limitaciones</h2>
+      <p id="wiki-reglas">—</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">Portal informativo de fans.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../personajes.html">Personajes</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul><li><a href="../contacto.html">Contacto</a></li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — No afiliado a <span>ZAG Animation</span>.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const datos = cargarWikiPersonaje('kwami');
+      if (!datos) return;
+
+      document.title = `Miraculous.Portal | ${datos.nombre}`;
+      document.getElementById('bc-nombre').textContent   = datos.nombre;
+      document.getElementById('wiki-nombre').textContent = datos.nombre;
+      document.getElementById('wiki-poder').textContent  = `Poder de ${datos.poder} · ${datos.animal}`;
+      document.getElementById('wiki-img').src = '../' + datos.imagen;
+      document.getElementById('wiki-img').alt = datos.nombre;
+
+      document.getElementById('wiki-badges').innerHTML = `
+        <span class="wiki-badge wiki-badge--morado">Kwami</span>
+        <span class="wiki-badge wiki-badge--rojo">${datos.categoria}</span>
+        <span class="wiki-badge wiki-badge--blanco">${datos.animal}</span>`;
+
+      document.getElementById('wiki-ficha').innerHTML = `
+        <div class="wiki-ficha__item"><label>Nombre</label><span>${datos.nombre}</span></div>
+        <div class="wiki-ficha__item"><label>Poder</label><span>${datos.poder}</span></div>
+        <div class="wiki-ficha__item"><label>Animal</label><span>${datos.animal}</span></div>
+        <div class="wiki-ficha__item"><label>Portador actual</label><span>${datos.portador}</span></div>
+        <div class="wiki-ficha__item"><label>Come</label><span>${datos.come}</span></div>
+        <div class="wiki-ficha__item"><label>Categoría</label><span>${datos.categoria}</span></div>`;
+
+      document.getElementById('wiki-historia').textContent = datos.historia;
+      document.getElementById('wiki-reglas').textContent   = datos.reglas;
+
+      document.getElementById('wiki-portadores').innerHTML = `
+        <div class="wiki-ficha" style="max-width:600px">
+          <div class="wiki-ficha__item"><label>Portador actual</label><span>${datos.portador}</span></div>
+          <div class="wiki-ficha__item"><label>Portadores históricos</label>
+            <span>${datos.antiguosPortadores.join(', ')}</span></div>
+        </div>`;
+
+      document.getElementById('wiki-caracteristicas').innerHTML = `
+        <div class="wiki-ficha" style="max-width:600px">
+          <div class="wiki-ficha__item"><label>Personalidad</label><span>${datos.personalidad}</span></div>
+          <div class="wiki-ficha__item"><label>Alimentación</label><span>${datos.come}</span></div>
+        </div>`;
+    });
+  </script>
+</body>
+</html>

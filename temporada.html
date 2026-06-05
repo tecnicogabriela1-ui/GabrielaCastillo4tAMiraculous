@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wiki completa de la temporada de Miraculous Ladybug.">
+  <title>Miraculous.Portal | wiki.temporadas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../personajes.html">Personajes</a></li>
+      <li><a href="../temporadas.html" class="active">Temporadas</a></li>
+      <li><a href="../tienda.html">Tienda</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="wiki-header">
+    <div class="wiki-header__breadcrumb">
+      <a href="../temporadas.html">Temporadas</a> / <span style="color:var(--rojo)">wiki.temporadas</span> / <span id="bc-nombre">—</span>
+    </div>
+    <div class="wiki-header__grid">
+      <div>
+        <img id="wiki-img" src="" alt="" class="wiki-header__img"
+             onerror="this.src='../img/placeholder.jpg'">
+      </div>
+      <div>
+        <p class="seccion__etiqueta" id="wiki-num">wiki.temporadas</p>
+        <h1 class="wiki-header__nombre" id="wiki-titulo">—</h1>
+        <div class="wiki-badges" id="wiki-badges"></div>
+        <div class="wiki-ficha" id="wiki-ficha"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wiki-body">
+
+    <div class="wiki-seccion">
+      <h2>Sinopsis</h2>
+      <p id="wiki-desc">—</p>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Episodios destacados</h2>
+      <div id="wiki-destacados"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">Portal informativo de fans.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../temporadas.html">Temporadas</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul><li><a href="../contacto.html">Contacto</a></li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — No afiliado a <span>ZAG Animation</span>.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const datos = cargarWikiPersonaje('temporada');
+      if (!datos) return;
+
+      document.title = `Miraculous.Portal | Temporada ${datos.numero}`;
+      document.getElementById('bc-nombre').textContent    = `Temporada ${datos.numero}`;
+      document.getElementById('wiki-num').textContent     = `Temporada ${datos.numero} · ${datos.año}`;
+      document.getElementById('wiki-titulo').textContent  = datos.titulo;
+      document.getElementById('wiki-img').src = '../' + datos.imagen;
+      document.getElementById('wiki-desc').textContent    = datos.descripcion;
+
+      document.getElementById('wiki-badges').innerHTML = `
+        <span class="wiki-badge wiki-badge--rojo">T${datos.numero}</span>
+        <span class="wiki-badge wiki-badge--blanco">${datos.año}</span>
+        <span class="wiki-badge wiki-badge--blanco">${datos.episodios} episodios</span>`;
+
+      document.getElementById('wiki-ficha').innerHTML = `
+        <div class="wiki-ficha__item"><label>Temporada</label><span>${datos.numero}</span></div>
+        <div class="wiki-ficha__item"><label>Año</label><span>${datos.año}</span></div>
+        <div class="wiki-ficha__item"><label>Episodios</label><span>${datos.episodios}</span></div>
+        <div class="wiki-ficha__item"><label>Título</label><span>${datos.titulo}</span></div>`;
+
+      document.getElementById('wiki-destacados').innerHTML = `
+        <div class="timeline">
+          ${datos.destacados.map((ep, i) => `
+            <div class="timeline-item">
+              <h4>Episodio destacado ${i + 1}</h4>
+              <p>${ep}</p>
+            </div>`).join('')}
+        </div>`;
+    });
+  </script>
+</body>
+</html>

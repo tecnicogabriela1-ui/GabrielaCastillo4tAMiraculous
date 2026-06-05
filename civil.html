@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vida civil completa del personaje de Miraculous Ladybug.">
+  <title>Miraculous.Portal | Perfil Civil</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../personajes.html" class="active">Personajes</a></li>
+      <li><a href="../temporadas.html">Temporadas</a></li>
+      <li><a href="../tienda.html">Tienda</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="wiki-header">
+    <div class="wiki-header__breadcrumb">
+      <a href="../personajes.html">Personajes</a> /
+      <a href="#" id="bc-wiki">wiki.heroes</a> /
+      <a href="#" id="bc-personaje">—</a> /
+      <span style="color:var(--rojo)">Perfil civil</span>
+    </div>
+    <div class="wiki-header__grid">
+      <div>
+        <img id="wiki-img" src="" alt="" class="wiki-header__img"
+             onerror="this.src='../img/placeholder.jpg'">
+      </div>
+      <div>
+        <p class="seccion__etiqueta">Vida civil</p>
+        <h1 class="wiki-header__nombre" id="wiki-civil">—</h1>
+        <p class="wiki-header__subtitulo" id="wiki-alter">—</p>
+        <div class="wiki-badges" id="wiki-badges"></div>
+        <div class="wiki-ficha" id="wiki-ficha"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wiki-body">
+
+    <div class="wiki-seccion">
+      <h2>Familia</h2>
+      <div id="wiki-familia"></div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Evolución en la serie</h2>
+      <div class="timeline" id="wiki-evolucion"></div>
+    </div>
+
+    <p style="text-align:center;padding:20px 0 60px">
+      <a id="btn-volver" href="#" class="hero__btn" style="display:inline-block">← Volver a la wiki del personaje</a>
+    </p>
+
+  </div>
+
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">Portal informativo de fans.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../personajes.html">Personajes</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul><li><a href="../contacto.html">Contacto</a></li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — No afiliado a <span>ZAG Animation</span>.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const id     = params.get('id');
+
+      // Buscar en héroes o villanos
+      let datos = HEROES.find(h => h.id === id) || VILLANOS.find(v => v.id === id);
+      let tipo  = HEROES.find(h => h.id === id) ? 'heroe' : 'villano';
+
+      if (!datos) {
+        document.body.innerHTML += '<p style="padding:120px 60px;color:var(--gris-medio)">Personaje no encontrado.</p>';
+        return;
+      }
+
+      document.title = `Miraculous.Portal | ${datos.civil}`;
+
+      document.getElementById('bc-wiki').textContent = tipo === 'heroe' ? 'wiki.heroes' : 'wiki.villanos';
+      document.getElementById('bc-wiki').href        = `${tipo === 'heroe' ? 'heroe' : 'villano'}.html?id=${id}`;
+      document.getElementById('bc-personaje').textContent = datos.nombre;
+      document.getElementById('bc-personaje').href        = `${tipo === 'heroe' ? 'heroe' : 'villano'}.html?id=${id}`;
+
+      document.getElementById('wiki-civil').textContent = datos.civil;
+      document.getElementById('wiki-alter').textContent = `Alter ego: ${datos.nombre}`;
+      document.getElementById('wiki-img').src = '../' + (datos.imagenCivil || datos.imagen);
+
+      document.getElementById('wiki-badges').innerHTML = `
+        <span class="wiki-badge wiki-badge--blanco">Identidad civil</span>
+        <span class="wiki-badge ${tipo === 'heroe' ? 'wiki-badge--rojo' : 'wiki-badge--morado'}">${datos.nombre}</span>`;
+
+      document.getElementById('wiki-ficha').innerHTML = `
+        <div class="wiki-ficha__item"><label>Nombre civil</label><span>${datos.civil}</span></div>
+        <div class="wiki-ficha__item"><label>Alter ego</label><span>${datos.nombre}</span></div>
+        <div class="wiki-ficha__item"><label>Kwami</label><span>${datos.kwami}</span></div>
+        <div class="wiki-ficha__item"><label>Desde temporada</label><span>T${datos.temporada}</span></div>`;
+
+      const famEl = document.getElementById('wiki-familia');
+      if (datos.familia && datos.familia.length) {
+        famEl.innerHTML = `
+          <div class="arbol-genealogico">
+            <div class="arbol-nivel">
+              ${datos.familia.map(f => `<div class="arbol-nodo">${f}</div>`).join('')}
+            </div>
+            <div class="arbol-conector"></div>
+            <div class="arbol-nivel">
+              <div class="arbol-nodo arbol-nodo--principal">${datos.civil}</div>
+            </div>
+          </div>`;
+      } else {
+        famEl.innerHTML = '<p style="color:var(--gris-medio)">Información familiar no especificada en la serie.</p>';
+      }
+
+      // Evolución
+      const evoEl = document.getElementById('wiki-evolucion');
+      if (datos.evolucion && datos.evolucion.length) {
+        evoEl.innerHTML = datos.evolucion.map((e, i) => `
+          <div class="timeline-item">
+            <h4>Fase ${i + 1}</h4>
+            <p>${e}</p>
+          </div>`).join('');
+      }
+
+      document.getElementById('btn-volver').href = `${tipo === 'heroe' ? 'heroe' : 'villano'}.html?id=${id}`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta con Miraculous.Portal — sede en París, Francia.">
+  <meta name="keywords" content="Miraculous contacto, Miraculous Corp Paris">
+  <title>Miraculous.Portal | Contacto</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Leaflet CSS (mapa interactivo) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="personajes.html">Personajes</a></li>
+      <li><a href="temporadas.html">Temporadas</a></li>
+      <li><a href="tienda.html">Tienda</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div style="padding-top:100px;padding-bottom:60px;padding-left:60px;padding-right:60px;
+              background:linear-gradient(to bottom,#0d0d0d,var(--negro));
+              border-bottom:1px solid rgba(232,0,13,0.1)">
+    <p class="seccion__etiqueta">Sede central</p>
+    <h1 class="seccion__titulo">Contacto</h1>
+    <div class="seccion__linea"></div>
+    <p style="color:var(--gris-suave);max-width:600px;font-weight:300">
+      ¿Tienes una misión que reportar? Escríbenos. Miraculous Corp responde desde París.
+    </p>
+  </div>
+
+  <section>
+    <div class="contacto-grid">
+
+      <!-- Formulario -->
+      <div>
+        <h2 style="font-family:var(--font-titulo);font-size:1.8rem;letter-spacing:2px;margin-bottom:28px">
+          Enviar mensaje
+        </h2>
+
+        <div class="form-grupo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" placeholder="Tu nombre" autocomplete="name">
+          <p class="form-error" id="error-nombre">Por favor ingresa tu nombre.</p>
+        </div>
+
+        <div class="form-grupo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" placeholder="tu@correo.com" autocomplete="email">
+          <p class="form-error" id="error-email">Por favor ingresa un correo válido.</p>
+        </div>
+
+        <div class="form-grupo">
+          <label for="asunto">Asunto</label>
+          <select id="asunto">
+            <option value="">Selecciona un asunto</option>
+            <option value="sugerencia">Sugerencia de contenido</option>
+            <option value="error">Reportar un error</option>
+            <option value="colaboracion">Colaboración</option>
+            <option value="otro">Otro</option>
+          </select>
+          <p class="form-error" id="error-asunto">Selecciona un asunto.</p>
+        </div>
+
+        <div class="form-grupo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
+          <p class="form-error" id="error-mensaje">El mensaje no puede estar vacío.</p>
+        </div>
+
+        <button class="form-submit" onclick="enviarFormulario()">
+          Enviar mensaje
+        </button>
+
+        <div class="form-success" id="form-success">
+          ✅ ¡Mensaje enviado! Te responderemos pronto desde París.
+        </div>
+      </div>
+
+      <!-- Mapa + info -->
+      <div>
+        <h2 style="font-family:var(--font-titulo);font-size:1.8rem;letter-spacing:2px;margin-bottom:20px">
+          Miraculous Corp.
+        </h2>
+        <p style="color:var(--gris-suave);font-size:0.88rem;margin-bottom:24px;font-weight:300">
+          Sede ficticia de los Guardianes del Miraculous, ubicada en el corazón de París, Francia.
+        </p>
+
+        <!-- Mapa Leaflet (OpenStreetMap — sin API key) -->
+        <div id="mapa"></div>
+
+        <div class="contacto-info">
+          <div class="contacto-info-item">
+            <div class="contacto-info-item__icon">📍</div>
+            <div class="contacto-info-item__text">
+              <strong>Dirección</strong>
+              <span>Tour Eiffel, Champ de Mars, 75007 París, Francia</span>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="contacto-info-item__icon">📧</div>
+            <div class="contacto-info-item__text">
+              <strong>Email</strong>
+              <span>guardianes@miraculous.portal</span>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="contacto-info-item__icon">🕐</div>
+            <div class="contacto-info-item__text">
+              <strong>Horario de respuesta</strong>
+              <span>Lunes a viernes · 9:00 — 18:00 CET</span>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="contacto-info-item__icon">🌐</div>
+            <div class="contacto-info-item__text">
+              <strong>Redes oficiales ZAG</strong>
+              <span>@MiraculousLadybug en todas las plataformas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">Portal informativo de fans dedicado a Miraculous Ladybug.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="temporadas.html">Temporadas</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul><li><a href="contacto.html">Contacto</a></li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — Sitio de fans. No afiliado a <span>ZAG Animation</span>.</p>
+      <p>Desarrollado con HTML · CSS · JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS (mapa interactivo OpenStreetMap — sin API key) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function enviarFormulario() {
+      let valido = true;
+
+      const campos = [
+        { id: 'nombre',  error: 'error-nombre',  check: v => v.trim().length >= 2 },
+        { id: 'email',   error: 'error-email',   check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+        { id: 'asunto',  error: 'error-asunto',  check: v => v !== '' },
+        { id: 'mensaje', error: 'error-mensaje', check: v => v.trim().length >= 10 }
+      ];
+
+      campos.forEach(({ id, error, check }) => {
+        const input = document.getElementById(id);
+        const errEl = document.getElementById(error);
+        if (!check(input.value)) {
+          input.classList.add('error');
+          errEl.classList.add('visible');
+          valido = false;
+        } else {
+          input.classList.remove('error');
+          errEl.classList.remove('visible');
+        }
+      });
+
+      if (valido) {
+        document.getElementById('form-success').classList.add('visible');
+        ['nombre','email','asunto','mensaje'].forEach(id => {
+          const el = document.getElementById(id);
+          el.tagName === 'SELECT' ? el.selectedIndex = 0 : (el.value = '');
+        });
+        setTimeout(() => document.getElementById('form-success').classList.remove('visible'), 5000);
+      }
+    }
+  </script>
+</body>
+</html>

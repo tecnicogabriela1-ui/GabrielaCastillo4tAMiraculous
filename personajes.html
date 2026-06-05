@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Todos los personajes de Miraculous: héroes, villanos y kwamis con su información completa.">
+  <meta name="keywords" content="Miraculous personajes, Ladybug, Cat Noir, villanos, kwamis, héroes">
+  <title>Miraculous.Portal | Personajes</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="personajes.html" class="active">Personajes</a></li>
+      <li><a href="temporadas.html">Temporadas</a></li>
+      <li><a href="tienda.html">Tienda</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HEADER ── -->
+  <div style="padding-top:100px;padding-bottom:60px;padding-left:60px;padding-right:60px;
+              background:linear-gradient(to bottom,#0d0d0d,var(--negro));
+              border-bottom:1px solid rgba(232,0,13,0.1)">
+    <p class="seccion__etiqueta">Universo Miraculous</p>
+    <h1 class="seccion__titulo">Personajes</h1>
+    <div class="seccion__linea"></div>
+    <p style="color:var(--gris-suave);max-width:600px;font-weight:300">
+      Explora a los héroes, villanos y kwamis de la serie. Haz clic sobre cualquier imagen
+      para acceder a la wiki completa del personaje.
+    </p>
+  </div>
+
+  <!-- ── HÉROES ── -->
+  <section class="personajes-seccion" id="heroes">
+    <p class="seccion__etiqueta">Portadores del bien</p>
+    <h2 class="seccion__titulo">Héroes</h2>
+    <div class="seccion__linea"></div>
+
+    <div class="filtros">
+      <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+      <button class="filtro-btn" data-filtro="heroes">Héroes</button>
+      <button class="filtro-btn filtro-btn--morado" data-filtro="villanos">Villanos</button>
+      <button class="filtro-btn filtro-btn--morado" data-filtro="kwamis">Kwamis</button>
+    </div>
+
+    <div class="personajes-grid" id="personajes-container"></div>
+
+    <!-- Botón villanos principales -->
+    <div style="text-align:center;margin-top:60px">
+      <p style="color:var(--gris-medio);font-size:0.85rem;margin-bottom:16px;letter-spacing:1px;text-transform:uppercase">
+        Conoce a los antagonistas definitivos
+      </p>
+      <a href="villanos-principales.html" class="hero__btn"
+         style="background:var(--morado);display:inline-block">
+        Ver villanos principales →
+      </a>
+    </div>
+  </section>
+
+  <!-- ── QUIZ ── -->
+  <section class="quiz-seccion" id="quiz">
+    <div class="quiz-container">
+      <p class="seccion__etiqueta">Pon a prueba tu conocimiento</p>
+      <h2 class="seccion__titulo">Quiz Miraculous</h2>
+      <div class="seccion__linea"></div>
+      <p style="color:var(--gris-suave);margin-bottom:40px;font-weight:300">
+        Preguntas sobre las 5 temporadas de la serie. ¿Eres un verdadero fan?
+      </p>
+      <div id="quiz-container"></div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">Portal informativo de fans dedicado a Miraculous Ladybug.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="temporadas.html">Temporadas</a></li>
+          <li><a href="villanos-principales.html">Villanos principales</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — Sitio de fans. No afiliado a <span>ZAG Animation</span>.</p>
+      <p>Desarrollado con HTML · CSS · JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

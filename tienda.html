@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda oficial Miraculous.Portal — productos del universo Miraculous Ladybug.">
+  <meta name="keywords" content="Miraculous tienda, productos Ladybug, Zag Store, merchandise Miraculous">
+  <title>Miraculous.Portal | Tienda</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="personajes.html">Personajes</a></li>
+      <li><a href="temporadas.html">Temporadas</a></li>
+      <li><a href="tienda.html" class="active">Tienda</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div style="padding-top:100px;padding-bottom:60px;padding-left:60px;padding-right:60px;
+              background:linear-gradient(to bottom,#0d0d0d,var(--negro));
+              border-bottom:1px solid rgba(232,0,13,0.1)">
+    <p class="seccion__etiqueta">Zag Store</p>
+    <h1 class="seccion__titulo">Tienda</h1>
+    <div class="seccion__linea"></div>
+    <p style="color:var(--gris-suave);max-width:600px;font-weight:300">
+      Productos oficiales del universo Miraculous. Joyas, figuras, ropa y más.
+    </p>
+  </div>
+
+  <section>
+    <div class="contenedor">
+      <!-- Filtros categoría -->
+      <div class="filtros" id="filtros-tienda" style="margin-bottom:36px"></div>
+
+      <div class="tienda-grid">
+        <!-- Productos -->
+        <div>
+          <div class="productos-grid" id="productos-grid"></div>
+        </div>
+
+        <!-- Carrito -->
+        <div class="carrito-panel">
+          <h3>🛒 Tu carrito</h3>
+          <div class="carrito-items" id="carrito-items">
+            <p class="carrito-vacio">Tu carrito está vacío 🐞</p>
+          </div>
+          <div class="carrito-total">
+            <span>Total</span>
+            <strong id="carrito-total">$0.00</strong>
+          </div>
+          <button class="carrito-btn-comprar" onclick="confirmarCompra()">
+            Finalizar compra
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div>
+        <p class="footer__desc">Portal informativo de fans dedicado a Miraculous Ladybug.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="temporadas.html">Temporadas</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Portal</h4>
+        <ul><li><a href="contacto.html">Contacto</a></li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 Miraculous.Portal — Sitio de fans. No afiliado a <span>ZAG Animation</span>.</p>
+      <p>Desarrollado con HTML · CSS · JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/tienda.js"></script>
+</body>
+</html>

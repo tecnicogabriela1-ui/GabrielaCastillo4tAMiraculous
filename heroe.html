@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miraculous.Portal | wiki.heroes</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .poder-item { background:var(--negro-card); border:1px solid rgba(232,0,13,0.15); border-radius:var(--radio); padding:16px 20px; margin-bottom:12px; }
+    .poder-item h4 { color:var(--rojo); font-weight:700; margin-bottom:6px; }
+    .poder-item p  { color:var(--gris-suave); font-size:0.88rem; line-height:1.7; }
+    .video-slot { background:var(--negro-card); border:2px dashed rgba(232,0,13,0.3); border-radius:var(--radio-lg); padding:28px; text-align:center; margin-bottom:16px; }
+    .video-slot label { display:block; font-size:0.72rem; letter-spacing:2px; color:var(--rojo); text-transform:uppercase; margin-bottom:10px; }
+    .video-slot input { width:100%; padding:10px 14px; background:#1a1a1a; border:1px solid rgba(255,255,255,0.1); border-radius:var(--radio); color:var(--blanco); font-family:var(--font-cuerpo); font-size:0.85rem; outline:none; }
+    .video-slot input:focus { border-color:var(--rojo); }
+    .akuma-item { padding:14px 18px; background:rgba(232,0,13,0.06); border-left:3px solid var(--rojo); border-radius:0 var(--radio) var(--radio) 0; margin-bottom:10px; }
+    .akuma-item h4 { color:var(--blanco); font-weight:700; margin-bottom:4px; }
+    .akuma-item p  { color:var(--gris-suave); font-size:0.85rem; }
+    .akuma-item .badge-temp { font-size:0.68rem; color:var(--rojo); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="../index.html" class="navbar__logo">MIRACULOUS<span>.</span>PORTAL</a>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../personajes.html" class="active">Personajes</a></li>
+      <li><a href="../temporadas.html">Temporadas</a></li>
+      <li><a href="../tienda.html">Tienda</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="wiki-header">
+    <div class="wiki-header__breadcrumb">
+      <a href="../personajes.html">Personajes</a> / <span style="color:var(--rojo)">wiki.heroes</span> / <span id="bc-nombre">—</span>
+    </div>
+    <div class="wiki-header__grid">
+      <img id="wiki-img" src="" alt="" class="wiki-header__img" onerror="this.src='../img/placeholder.jpg'">
+      <div>
+        <p class="seccion__etiqueta">wiki.heroes</p>
+        <h1 class="wiki-header__nombre" id="wiki-nombre">—</h1>
+        <p class="wiki-header__subtitulo" id="wiki-poder">—</p>
+        <div class="wiki-badges" id="wiki-badges"></div>
+        <div class="wiki-ficha" id="wiki-ficha"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wiki-body">
+
+    <div class="wiki-seccion">
+      <h2>Como héroe</h2>
+      <p id="wiki-descripcion">—</p>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Poderes</h2>
+      <div id="wiki-poderes"></div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Evolución en la serie</h2>
+      <div class="timeline" id="wiki-timeline"></div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Akumatizaciones</h2>
+      <div id="wiki-akumas"><p style="color:var(--gris-medio)">Este personaje no ha sido akumatizado.</p></div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Videos</h2>
+      <p style="color:var(--gris-suave);margin-bottom:20px;font-size:0.88rem">Pega el enlace de YouTube en cada campo para insertar el video.</p>
+      <div class="video-slot">
+        <label>🎬 Video 1 — Transformación / Diseño visual</label>
+        <input type="url" id="video1-url" placeholder="https://www.youtube.com/embed/..." oninput="cargarVideo('video1')">
+        <div id="video1-container" style="margin-top:12px"></div>
+      </div>
+      <div class="video-slot">
+        <label>🎬 Video 2 — Akumatización icónica / Mejor escena</label>
+        <input type="url" id="video2-url" placeholder="https://www.youtube.com/embed/..." oninput="cargarVideo('video2')">
+        <div id="video2-container" style="margin-top:12px"></div>
+      </div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Árbol familiar</h2>
+      <div class="arbol-genealogico" id="wiki-arbol"></div>
+    </div>
+
+    <div class="wiki-seccion">
+      <h2>Vida civil</h2>
+      <p id="wiki-vidacivil">—</p>
+      <a id="btn-civil" href="#" class="hero__btn" style="display:inline-block;margin-top:20px">Ver perfil civil completo →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer__grid">
+      <div><div class="footer__logo">MIRACULOUS<span>.</span>PORTAL</div><p class="footer__desc">Portal informativo de fans.</p></div>
+      <div class="footer__col"><h4>Explorar</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="../personajes.html">Personajes</a></li><li><a href="../temporadas.html">Temporadas</a></li></ul></div>
+      <div class="footer__col"><h4>Portal</h4><ul><li><a href="../contacto.html">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>© 2025 Miraculous.Portal — No afiliado a <span>ZAG Animation</span>.</p></div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function cargarVideo(id) {
+      const url = document.getElementById(id+'-url').value.trim();
+      const cont = document.getElementById(id+'-container');
+      if (!url) { cont.innerHTML=''; return; }
+      let embedUrl = url;
+      if (url.includes('youtube.com/watch')) {
+        const v = new URL(url).searchParams.get('v');
+        if (v) embedUrl = `https://www.youtube.com/embed/${v}`;
+      } else if (url.includes('youtu.be/')) {
+        const v = url.split('youtu.be/')[1]?.split('?')[0];
+        if (v) embedUrl = `https://www.youtube.com/embed/${v}`;
+      }
+      cont.innerHTML = `<div class="wiki-video"><iframe src="${embedUrl}" allowfullscreen title="Video"></iframe></div>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const datos = cargarWikiPersonaje('heroe');
+      if (!datos) return;
+      document.title = `Miraculous.Portal | ${datos.nombre}`;
+      document.getElementById('bc-nombre').textContent   = datos.nombre;
+      document.getElementById('wiki-nombre').textContent = datos.nombre;
+      document.getElementById('wiki-poder').textContent  = datos.poder;
+      document.getElementById('wiki-img').src = '../' + datos.imagen;
+      document.getElementById('wiki-descripcion').textContent = datos.descripcionHeroe || datos.descripcion || '';
+      document.getElementById('wiki-vidacivil').textContent   = datos.vidaCivil || '';
+
+      document.getElementById('wiki-badges').innerHTML = `
+        <span class="wiki-badge wiki-badge--rojo">Héroe</span>
+        <span class="wiki-badge wiki-badge--blanco">Desde T${datos.temporada}</span>
+        <span class="wiki-badge wiki-badge--morado">Kwami: ${datos.kwami}</span>`;
+
+      document.getElementById('wiki-ficha').innerHTML = `
+        <div class="wiki-ficha__item"><label>Nombre</label><span>${datos.nombre}</span></div>
+        <div class="wiki-ficha__item"><label>Identidad civil</label><span><a href="civil.html?id=${datos.id}" style="color:var(--rojo);text-decoration:underline">${datos.civil}</a></span></div>
+        <div class="wiki-ficha__item"><label>Poder</label><span>${datos.poder}</span></div>
+        <div class="wiki-ficha__item"><label>Kwami</label><span>${datos.kwami}</span></div>
+        <div class="wiki-ficha__item"><label>Desde temporada</label><span>T${datos.temporada}</span></div>`;
+
+      // Poderes
+      if (datos.poderes?.length) {
+        document.getElementById('wiki-poderes').innerHTML = datos.poderes.map(p => `
+          <div class="poder-item"><h4>${p.nombre}</h4><p>${p.desc}</p></div>`).join('');
+      }
+
+      // Timeline
+      if (datos.evolucion?.length) {
+        document.getElementById('wiki-timeline').innerHTML = datos.evolucion.map((e,i) => `
+          <div class="timeline-item"><h4>Fase ${i+1}</h4><p>${e}</p></div>`).join('');
+      }
+
+      // Akumatizaciones
+      if (datos.akumatizaciones?.length) {
+        document.getElementById('wiki-akumas').innerHTML = datos.akumatizaciones.map(a => `
+          <div class="akuma-item">
+            <div class="badge-temp">Temporada ${a.temporada}</div>
+            <h4>${a.nombre}</h4>
+            <p>${a.causa}</p>
+          </div>`).join('');
+      }
+
+      // Árbol
+      if (datos.familia?.length) {
+        document.getElementById('wiki-arbol').innerHTML = `
+          <div class="arbol-nivel">${datos.familia.map(f=>`<div class="arbol-nodo">${f}</div>`).join('')}</div>
+          <div class="arbol-conector"></div>
+          <div class="arbol-nivel"><div class="arbol-nodo arbol-nodo--principal">${datos.civil} (${datos.nombre})</div></div>`;
+      }
+
+      document.getElementById('btn-civil').href = `civil.html?id=${datos.id}`;
+    });
+  </script>
+</body>
+</html>
